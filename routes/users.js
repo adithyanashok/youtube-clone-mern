@@ -1,6 +1,6 @@
 import express from "express";
 import { deleteUser, dislike, getUser, like, subscribe, unsubscribe, update } from "../controller/user.js";
-import { verifyToken } from "../verifyToken.js";
+import { verifyToken, verifyTokenAndAuthorization } from "../verifyToken.js";
 
 const router = express.Router()
 
@@ -11,7 +11,7 @@ router.delete("/:id", verifyToken, deleteUser)
 // Get User
 router.get("/find/:id", getUser)
 //  subscribe
-router.put("/sub/:id", verifyToken, subscribe)
+router.put("/sub/:id", verifyTokenAndAuthorization, subscribe)
 // unsubscribe
 router.put("/unsub:id", verifyToken, unsubscribe)
 // like
