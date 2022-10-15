@@ -41,7 +41,7 @@ app.use((err, req, res, next) => {
 
 })
 
-app.listen(process.env.PORT || 8800, () => {
+app.listen(process.env.PORT || 5000, () => {
     connect()
     console.log("Server Started")
 })
