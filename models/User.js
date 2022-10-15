@@ -13,7 +13,6 @@ const UserSchema = mongoose.Schema({
     },
     password:{
         type:String,
-        required:true
     },
     img:{
         type:String,
@@ -21,6 +20,10 @@ const UserSchema = mongoose.Schema({
     subscribers:{
         type:Number,
         default:0,
+    },
+    fromGoogle:{
+        type:Boolean,
+        default:false
     },
     subscribedUsers:{
         type:[String],
