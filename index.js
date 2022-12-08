@@ -21,7 +21,7 @@ const connect = () => {
 }
 app.use(cors({
     origin: ["http://localhost:3000",
-    "https://youtube-clone-nine-zeta.vercel.app"],
+    "https://youtube-clone-frontend-psi.vercel.app"],
     credentials: true,
 }))
 app.use(cookieParser())
