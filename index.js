@@ -24,6 +24,7 @@ app.use(cors({
     "https://youtube-clone-frontend-psi.vercel.app"],
     credentials: true,
 }))
+
 app.use(cookieParser())
 app.use(express.json())
 app.use("/api/auth", authRoutes)
