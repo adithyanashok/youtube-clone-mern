@@ -20,7 +20,8 @@ const connect = () => {
  })
 }
 app.use(cors({
-    origin: "https://youtube-clone-nine-zeta.vercel.app",
+    origin: ["http://localhost:3000",
+    "https://youtube-clone-nine-zeta.vercel.app"],
     credentials: true,
 }))
 app.use(cookieParser())

@@ -12,11 +12,13 @@ export const signup = async (req, res, next) => {
     const newUser = new User({ ...req.body, password: hash})
     console.log(newUser);
     const savedUser = await newUser.save();
-    const token = jwt.sign({id :savedUser._id}, process.env.JWT);
+    const token = jwt.sign({id :savedUser._id}, process.env.JWT, {expiresIn:"9d"});
        const { password, ...others } = savedUser._doc
  
      res.cookie("access_token",token,{ 
-        token:token
+        httpOnly: true,
+        secure: true,
+        sameSite: "none"
        }).status(200).json(others);
    } catch (err) {
      next(err);
@@ -33,11 +35,13 @@ export const signin = async (req, res, next) => {
  
      if (!isCorrect) return next(createError(400, "Wrong Password!"));
  
-      const token = jwt.sign({id :user._id}, process.env.JWT);
+      const token = jwt.sign({id :user._id}, process.env.JWT, {expiresIn:"9d"});
        const { password, ...others } = user._doc
  
      res.cookie("access_token",token,{ 
-        token:token
+        httpOnly: true,
+        secure: true,
+        sameSite: "none"
        }).status(200).json(others);
    } catch (err) {
      next(err);
